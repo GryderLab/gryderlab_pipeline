@@ -24,9 +24,9 @@ This pipeline is available on NIH biowulf cluster, contact me if you would like 
 SLURM resource management
 
 ### HiC:
-- [HiCPro] (https://github.com/nservant/HiC-Pro)
-- [JuiceBox] (https://github.com/aidenlab/Juicebox)
-- [Bowtie2] (https://github.com/BenLangmead/bowtie2)
+- [HiCPro] (https://github.com/nservant/HiC-Pro) ([2.11.1](https://github.com/nservant/HiC-Pro/releases/tag/v2.11.1))
+- [JuiceBox] (https://github.com/aidenlab/Juicebox) ([Specifically Juicer 1.5.6](https://github.com/aidenlab/juicer/wiki/Download#version-161))
+- [Bowtie2] (https://github.com/BenLangmead/bowtie2) 
 
 ### ChIPseq:
 - BWA
