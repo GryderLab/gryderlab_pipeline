@@ -1,5 +1,6 @@
 # khanlab_pipeline
-This is the implementation of [KhanLab](https://ccr.cancer.gov/Genetics-Branch/javed-khan) NGS Pipeline using Snakemake.
+This is the implementation of [KhanLab](https://ccr.cancer.gov/Genetics-Branch/javed-khan) NGS Pipeline using Snakemake.  
+The Gryder Lab fork is a modification to run on the Case Western Reserve University HPC environment. 
 
 Khanlab pipeline supports the following NGS data types:
 
