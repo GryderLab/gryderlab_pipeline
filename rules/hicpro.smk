@@ -1,3 +1,5 @@
+hicpro: "singularity exec /home/jxs1984/.usr/local/hicpro.img"
+
 rule makeViewPoint:
     input:  
             "{sample}/HiCproOUTPUT.{genome}/hic_results/data/{sample}/{sample}.allValidPairs"
@@ -9,10 +11,13 @@ rule makeViewPoint:
             rulename = "makeViewPoint",
             log_dir = lambda wildcards: wildcards.sample + '/log',
             batch    = config["cluster_common"]["medium"]
+	singularity_version:
+	        config["version_common"]["sigularity"]
     shell:
             """
-            module load hicpro/{version}
-            make_viewpoints.py -i {input} -f {params.fragment_bed} -t {params.capture_bed} -e 1000 -v -o {output}
+            module load singularity/{singularity_version}
+			#make_viewpoints.py is a script inside HiC-Pro
+            {hicpro} /HiC-Pro-devel/bin/utils/make_viewpoints.py -i {input} -f {params.fragment_bed} -t {params.capture_bed} -e 1000 -v -o {output}
             """
 
 rule HiCpro2Juicebox:
@@ -22,6 +27,8 @@ rule HiCpro2Juicebox:
             "{sample}/{sample}.allValidPairs.hic"
     version:
             config["version"]["hicpro"]
+	singularity_version:
+	        config["version_common"]["sigularity"]
     params:
             juicer_jar=config["juicer_jar"],
             juicer_genome=lambda wildcards: config[samples[wildcards.sample]["Genome"]]["juicer_genome"],
@@ -32,8 +39,8 @@ rule HiCpro2Juicebox:
             "{sample}/benchmark/HiCpro2Juicebox.benchmark.txt"
     shell:
             """            
-            module load hicpro/{version}
-            hicpro2juicebox.sh -i {input} -g {params.juicer_genome} -j {params.juicer_jar} -o {wildcards.sample}
+            module load singularity/{singularity_version}
+            {hicpro} /HiC-Pro-devel/bin/utils/hicpro2juicebox.sh -i {input} -g {params.juicer_genome} -j {params.juicer_jar} -o {wildcards.sample}
             """
 
 rule mergeStats:
@@ -108,9 +115,11 @@ rule HiCPro:
     params:
             out_dir = lambda wildcards: wildcards.sample + '/HiCproOUTPUT.' + wildcards.genome,
             config_file = lambda wildcards: config["pipeline_home"] + '/config/hicpro/' + wildcards.genome + '_' + samples[wildcards.sample]["Digest"] + '.txt'
+	singularity_version:
+	        config["version_common"]["sigularity"]
     shell:
             """
-            module load hicpro/{version}
-            rm -rf {params.out_dir}            
-            HiC-Pro -i {wildcards.sample}/DATA/ -o {params.out_dir}/ -c {params.config_file} -p
+            module load singularity/{singularity_version}
+            rm -rf {params.out_dir}
+            {hicpro} HiC-Pro -i {wildcards.sample}/DATA/ -o {params.out_dir}/ -c {params.config_file} -p
             """
