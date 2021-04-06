@@ -14,7 +14,7 @@ As sections of the pipeline are ported to the CWRU context they'll be noted in t
 The easiest way to get this pipeline is to clone the repository.
 
 ```
-git clone git@github.com:hsienchao/khanlab_pipeline.git
+git clone git@github.com:GryderLab/gryderlab_pipeline.git
 ```
 This pipeline is available on NIH biowulf cluster, contact me if you would like to do a test run. The data from this pipeline could directly be ported in [OncoGenomics-DB](https://clinomics.ncifcrf.gov/production/public/), an application created to visualize NGS data available to NIH users.
 ## Requirements
