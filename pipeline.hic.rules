@@ -30,11 +30,11 @@ include: "rules/utility.smk"
 include: "rules/pipeline.hic.smk"
     
 onerror:
-    shell("echo 'HiC pipeline version {pipeline_version} failed on Biowulf. Samples: {SAMPLES}. Working Dir:  {work_dir}' ") #|mutt -e 'my_hdr From:jxs1984@case.edu' -s 'Khanlab HiC Pipeline Status' `whoami`@case.edu {emails} ")
+    shell("echo 'HiC pipeline version {pipeline_version} failed on Biowulf. Samples: {SAMPLES}. Working Dir:  {work_dir}' ") #|mutt -e 'my_hdr From:jxs1984@case.edu' -s 'Gryderlab HiC Pipeline Status' `whoami`@case.edu {emails} ")
 onstart:
-    shell("echo 'HiC pipeline version {pipeline_version} started on Biowulf. Samples: {SAMPLES}. Working Dir:  {work_dir}' ") #|mutt -e 'my_hdr From:jxs1984@case.edu' -s 'Khanlab HiC Pipeline Status' `whoami`@case.edu {emails} ")
+    shell("echo 'HiC pipeline version {pipeline_version} started on Biowulf. Samples: {SAMPLES}. Working Dir:  {work_dir}' ") #|mutt -e 'my_hdr From:jxs1984@case.edu' -s 'Gryderlab HiC Pipeline Status' `whoami`@case.edu {emails} ")
 onsuccess:
-    shell("echo 'HiC pipeline version {pipeline_version} finished on Biowulf. Samples: {SAMPLES}. Working Dir:  {work_dir}' ") #|mutt -e 'my_hdr From:jxs1984@case.edu' -s 'Khanlab HiC Pipeline Status' `whoami`@case.edu {emails} ")
+    shell("echo 'HiC pipeline version {pipeline_version} finished on Biowulf. Samples: {SAMPLES}. Working Dir:  {work_dir}' ") #|mutt -e 'my_hdr From:jxs1984@case.edu' -s 'Gryderlab HiC Pipeline Status' `whoami`@case.edu {emails} ")
     shell("for s in {SAMPLES};do touch {work_dir}/${{s}}/successful.txt;chgrp -R beg33 {work_dir}/${{s}};done")
     print("Workflow finished, no error")
 

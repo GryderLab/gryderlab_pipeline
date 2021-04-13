@@ -35,7 +35,7 @@ $0 [options]
 required options:
 
   -e  <string>  expression file
-  -t  <string>  Type (Cufflink expression: 'EXP' , Khanlab TPM: 'TPM', Cuffdiff: 'DIFF', Matrix file: 'MATRIX')
+  -t  <string>  Type (Cufflink expression: 'EXP' , Gryderlab TPM: 'TPM', Cuffdiff: 'DIFF', Matrix file: 'MATRIX')
   -b  <string>  Input BED file  
 
 optional options:  

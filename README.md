@@ -103,7 +103,7 @@ python scripts/sampleToYaml.py -s RH4_Ent6_H3K27ac_HiChIP_HH3JVBGX7 -o RH4_Ent6_
       launch -type hic -w /data/khanlab/projects/HiC/processed_DATA -s /data/khanlab/projects/HiC/processed_DATA/sample_sheets/RH4_D6_H3K27ac_HiChIP_HKJ22BGX7.hic.yaml -g hg19
 ```
 
-#####  2. Launch by sample ID (Khanlab automation and regular Khanlab users):
+#####  2. Launch by sample ID (Gryderlab automation and regular Gryderlab users):
 ```
     scripts/automate.sh [sampleID]
 ```    
@@ -111,7 +111,8 @@ python scripts/sampleToYaml.py -s RH4_Ent6_H3K27ac_HiChIP_HH3JVBGX7 -o RH4_Ent6_
 
     For RNAseq samples, the genome is defined in "SampleRef" column in master file. For ChIPSeq/HiC samples, genome version is defined in "Genome" column. The values can be multiple seperated by comma (e.g. hg19,hg38)
     
-    The Khanlab data location:
+    The Khanlab data location: 
+    (TODO: Gryderlab location: /home/jxs1984/MCC/data/)
     
     -- FASTQ files: /data/khanlab/projects/DATA
     -- Processed data: /data/khanlab/projects/pipeline_production/processed_DATA

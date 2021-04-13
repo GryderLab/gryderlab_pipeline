@@ -66,5 +66,5 @@ sub main {
 	system("igvtools toTDF $bg_out_file $output_file $genome");
 	system("rm $bg_out_file $bg_in_file");
 	system("chmod 775 $output_file");
-	system("chgrp khanlab $output_file");
+	system("chgrp beg33 $output_file");
 }

@@ -69,7 +69,7 @@ except Exception as err:
     contents = output.getvalue()
     output.close()
     print(contents)    
-    shell("echo 'HiC pipeline has exception: reason " + contents + ". Working Dir:  {work_dir}' ") #|mutt -e 'my_hdr From:jxs1984@case.edu' -s 'Khanlab HiC Pipeline Status' `whoami`@case.edu {emails} ")
+    shell("echo 'HiC pipeline has exception: reason " + contents + ". Working Dir:  {work_dir}' ") #|mutt -e 'my_hdr From:jxs1984@case.edu' -s 'Gryderlab HiC Pipeline Status' `whoami`@case.edu {emails} ")
     sys.exit()    
 
 TARGETS = MERGED_PAIRS+JUICEBOX_OUT+MERGE_STATS_SUMMARY+FASTQCS+FITHICHIP_OUT+PEAKACHU_OUT

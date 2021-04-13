@@ -59,7 +59,7 @@ except Exception as err:
     contents = output.getvalue()
     output.close()
     print(contents)    
-    shell("echo 'RNAseq pipeline has exception: reason " + contents + ". Working Dir:  {work_dir}' ") #|mutt -e 'my_hdr From:jxs1984@case.edu' -s 'Khanlab RNAseq Pipeline Status' `whoami`@case.edu {emails} ")
+    shell("echo 'RNAseq pipeline has exception: reason " + contents + ". Working Dir:  {work_dir}' ") #|mutt -e 'my_hdr From:jxs1984@case.edu' -s 'Gryderlab RNAseq Pipeline Status' `whoami`@case.edu {emails} ")
     sys.exit()
     
 TARGETS = BAMS + HLA + RSEM
