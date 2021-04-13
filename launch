@@ -106,7 +106,7 @@ if ($dryrun){
 	}	
 	my $cmd = "(
 		conda activate snakemake_env
-		module load graphviz
+		# module load graphviz # conda install graphviz now in same env
 		$snake_command
 		rm -f $work_dir/pipeline.$type.${sheet_name}.$now.csv
 		)";
@@ -120,7 +120,7 @@ else{
 	if ($local) {
 		system($snake_command);
 	} else {
-		$jobid = readpipe("conda activate snakemake_env;sbatch -J ${type}_pipeline -e $work_dir/log/pipeline.$type.${sheet_name}_${now}.%j.e -o $work_dir/log/pipeline.$type.${sheet_name}_${now}.%j.o --cpus-per-task=1 --mem=8G --partition=ccr,norm --time=4-00:00:00 $snake_command");
+		$jobid = readpipe("conda init bash; conda activate snakemake_env;sbatch -J ${type}_pipeline -e $work_dir/log/pipeline.$type.${sheet_name}_${now}.%j.e -o $work_dir/log/pipeline.$type.${sheet_name}_${now}.%j.o --cpus-per-task=1 --mem=8G --partition=ccr,norm --time=4-00:00:00 $snake_command");
 	}
 }
 
