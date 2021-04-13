@@ -7,9 +7,9 @@ use Time::Piece;
 use File::Basename;
 
 my $type;
-my $data_dir="/data/khanlab/projects/DATA";
+my $data_dir="/home/jxs1984/MCC/data";
 my $sheet;
-my $genome="hg38";
+my $genome="hg19";
 
 my $pipeline_home = readpipe("cd `dirname $0`;pwd");
 chomp $pipeline_home;
@@ -105,7 +105,7 @@ if ($dryrun){
 		$snake_command = $snake_command." --dag | dot -Tsvg > dag.$type.svg";
 	}	
 	my $cmd = "(
-		module load snakemake/5.13.0
+		conda activate snakemake_env
 		module load graphviz
 		$snake_command
 		rm -f $work_dir/pipeline.$type.${sheet_name}.$now.csv
@@ -120,7 +120,7 @@ else{
 	if ($local) {
 		system($snake_command);
 	} else {
-		$jobid = readpipe("module load snakemake/5.13.0;sbatch -J ${type}_pipeline -e $work_dir/log/pipeline.$type.${sheet_name}_${now}.%j.e -o $work_dir/log/pipeline.$type.${sheet_name}_${now}.%j.o --cpus-per-task=1 --mem=8G --partition=ccr,norm --time=4-00:00:00 $snake_command");
+		$jobid = readpipe("conda activate snakemake_env;sbatch -J ${type}_pipeline -e $work_dir/log/pipeline.$type.${sheet_name}_${now}.%j.e -o $work_dir/log/pipeline.$type.${sheet_name}_${now}.%j.o --cpus-per-task=1 --mem=8G --partition=ccr,norm --time=4-00:00:00 $snake_command");
 	}
 }
 
