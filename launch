@@ -117,10 +117,12 @@ else{
 	system("mkdir -p $work_dir/log");
 	system("chmod g+rw $work_dir/log");
 	$snake_command = $snake_command." --jobname {params.rulename}.{jobid} --nolock  --ri -k -p -r -j 1000 --cores 150 --jobscript $pipeline_home/scripts/jobscript.sh --cluster \"sbatch -o {params.log_dir}/{params.rulename}.%j.o -e {params.log_dir}/{params.rulename}.%j.e {params.batch}\"";
+        system("source ~/.bashrc"); # allows activate
+        system("conda activate snakemake_env"); # puts snakemake on the PATH
 	if ($local) {
 		system($snake_command);
 	} else {
-		$jobid = readpipe("conda init bash; conda activate snakemake_env;sbatch -J ${type}_pipeline -e $work_dir/log/pipeline.$type.${sheet_name}_${now}.%j.e -o $work_dir/log/pipeline.$type.${sheet_name}_${now}.%j.o --cpus-per-task=1 --mem=8G --partition=ccr,norm --time=4-00:00:00 $snake_command");
+               $jobid = readpipe("sbatch -J ${type}_pipeline -e $work_dir/log/pipeline.$type.${sheet_name}_${now}.%j.e -o $work_dir/log/pipeline.$type.${sheet_name}_${now}.%j.o --cpus-per-task=1 --mem=8G --partition=ccr,norm --time=4-00:00:00 $snake_command");
 	}
 }
 
