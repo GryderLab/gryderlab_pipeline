@@ -1,7 +1,7 @@
 %YAML 1.2
 ---
 pipeline_version: "v0.1"
-emails: " -c chouh@nih.gov"
+emails: " -c jxs1984@case.edu"
 FASTQ_prefix: "Sample_"
 FASTQ_suffix_R1: "_R1.fastq.gz"
 FASTQ_suffix_R2: "_R2.fastq.gz"

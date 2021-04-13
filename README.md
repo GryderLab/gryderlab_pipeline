@@ -1,4 +1,4 @@
-# gryderlab_pipeline
+# GryderLab_Pipeline
 This is the implementation of [KhanLab](https://ccr.cancer.gov/Genetics-Branch/javed-khan) NGS Pipeline using Snakemake.  
 The Gryder Lab fork is a modification to run on the Case Western Reserve University (CWRU) HPC environment. 
 
@@ -19,9 +19,9 @@ git clone git@github.com:GryderLab/gryderlab_pipeline.git
 This pipeline is available on NIH biowulf cluster, contact me if you would like to do a test run. The data from this pipeline could directly be ported in [OncoGenomics-DB](https://clinomics.ncifcrf.gov/production/public/), an application created to visualize NGS data available to NIH users.
 ## Requirements
 [snakemake 5.13.0](https://snakemake.readthedocs.io/en/stable/)  
-[mutt](http://www.mutt.org/)  
+[mutt](http://www.mutt.org/) - disabled  
 [gnu parallel](http://www.gnu.org/software/parallel/)  
-SLURM resource management
+SLURM resource management (drmaa 1.0.7)
 
 ### HiC:
 - [HiCPro] (https://github.com/nservant/HiC-Pro) ([2.11.1](https://github.com/nservant/HiC-Pro/releases/tag/v2.11.1))

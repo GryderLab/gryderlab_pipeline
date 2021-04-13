@@ -20,7 +20,7 @@ JOB_NAME = hg38_HiCpro
 JOB_MEM = 120gb
 JOB_WALLTIME = 24:00:00
 JOB_QUEUE = ccr
-JOB_MAIL = chouh@nih.gov
+JOB_MAIL = jxs1984@case.edu
 
 #########################################################################
 ## Data

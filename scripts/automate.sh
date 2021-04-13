@@ -42,6 +42,6 @@ if [[ "$type" == "hic" || "$type" == "chipseq" || "$type" == "rnaseq" ]];then
 		perl $pipeline_home/launch -t $type -w $processed_data_home/$g_nos/$type -s $yaml_file -g $g_nos
 	done
 else
-	echo "Error: Sample sheet generation failed: $sample_id. Reason: $type" |mutt -s 'Khanlab Pipeline Status' `whoami`@mail.nih.gov
+	echo "Error: Sample sheet generation failed: $sample_id. Reason: $type" ") #|mutt -s 'Khanlab Pipeline Status' `whoami`@case.edu
 fi
 

@@ -118,7 +118,7 @@ except Exception as err:
     contents = output.getvalue()
     output.close()
     print(contents)    
-    shell("echo 'ChIPseq pipeline has exception: reason " + contents + ". Working Dir:  {work_dir}' |mutt -e 'my_hdr From:chouh@nih.gov' -s 'Khanlab ChIPseq Pipeline Status' `whoami`@mail.nih.gov {emails} ")
+    shell("echo 'ChIPseq pipeline has exception: reason " + contents + ". Working Dir:  {work_dir}' ") #|mutt -e 'my_hdr From:jxs1984@case.edu' -s 'Khanlab ChIPseq Pipeline Status' `whoami`@case.edu {emails} ")
     sys.exit()
     
 TARGETS = FASTQCS + BAMS + BWS + TDFS + SPP + MACS2 + ANNOTATION + ROSE + MOTIFS + EDENS + RNAseq + COLTRONS

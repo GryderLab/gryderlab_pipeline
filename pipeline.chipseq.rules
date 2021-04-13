@@ -142,16 +142,16 @@ except Exception as err:
     contents = output.getvalue()
     output.close()
     print(contents)    
-    shell("echo 'ChIPseq pipeline has exception: reason " + contents + ". Working Dir:  {work_dir}' |mutt -e 'my_hdr From:chouh@nih.gov' -s 'Khanlab ChIPseq Pipeline Status' `whoami`@mail.nih.gov {emails} ")
+    shell("echo 'ChIPseq pipeline has exception: reason " + contents + ". Working Dir:  {work_dir}' ") #|mutt -e 'my_hdr From:jxs1984@case.edu' -s 'Gryderlab ChIPseq Pipeline Status' `whoami`@case.edu {emails} ")
     sys.exit()
     
 onerror:
-    shell("echo 'ChIPseq pipeline version {pipeline_version} failed on Biowulf. Samples: {SAMPLES}. Working Dir:  {work_dir}' |mutt -e 'my_hdr From:chouh@nih.gov' -s 'Khanlab ChIPseq Pipeline Status' `whoami`@mail.nih.gov {emails} ")
+    shell("echo 'ChIPseq pipeline version {pipeline_version} failed on Biowulf. Samples: {SAMPLES}. Working Dir:  {work_dir}' ") #|mutt -e 'my_hdr From:jxs1984@case.edu' -s 'Gryderlab ChIPseq Pipeline Status' `whoami`@case.edu {emails} ")
 onstart:
-    shell("echo 'ChIPseq pipeline version {pipeline_version} started on Biowulf. Samples: {SAMPLES}. Working Dir:  {work_dir}' |mutt -e 'my_hdr From:chouh@nih.gov' -s 'Khanlab ChIPseq Pipeline Status' `whoami`@mail.nih.gov {emails} ")
+    shell("echo 'ChIPseq pipeline version {pipeline_version} started on Biowulf. Samples: {SAMPLES}. Working Dir:  {work_dir}' ") #|mutt -e 'my_hdr From:jxs1984@case.edu' -s 'Gryderlab ChIPseq Pipeline Status' `whoami`@case.edu {emails} ")
 onsuccess:
-    shell("echo 'ChIPseq pipeline version {pipeline_version} finished on Biowulf. Samples: {SAMPLES}. Working Dir:  {work_dir}' |mutt -e 'my_hdr From:chouh@nih.gov' -s 'Khanlab ChIPseq Pipeline Status' `whoami`@mail.nih.gov {emails} ")
-    shell("for s in {SAMPLES};do touch {work_dir}/${{s}}/successful.txt;chgrp -R khanlab {work_dir}/${{s}};done")
+    shell("echo 'ChIPseq pipeline version {pipeline_version} finished on Biowulf. Samples: {SAMPLES}. Working Dir:  {work_dir}' ") #|mutt -e 'my_hdr From:jxs1984@case.edu' -s 'Gryderlab ChIPseq Pipeline Status' `whoami`@case.edu {emails} ")
+    shell("for s in {SAMPLES};do touch {work_dir}/${{s}}/successful.txt;chgrp -R beg33 {work_dir}/${{s}};done")
     print("Workflow finished, no error")
     
 localrules: prepareFASTQ, ChIPseq_pipeline, EDEN, prepareSummit, prepareRoseSummit
