@@ -97,7 +97,7 @@ my $now=`echo \$(date +"%Y%m%d_%H%M%S")`;
 chomp $now;
 my $jobid;
 my $sheet_name = basename($sheet, ".yaml");
-my $snakefile="$pipeline_home/gryderlab_pipeline.smk";
+my $snakefile="$pipeline_home/khanlab_pipeline.smk";
 my $snake_command = "snakemake --directory $work_dir --snakefile $snakefile --configfile $sheet --config type=$type pipeline_home=$pipeline_home work_dir=$work_dir data_dir=$data_dir genome=$genome now=$now";
 if ($dryrun){
 	$snake_command = $snake_command." -p -r --ri --dryrun";
