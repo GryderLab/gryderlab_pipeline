@@ -1,4 +1,4 @@
-#!/usr/bin/perl -ws
+#!/usr/bin/env perl -ws
 use 5.010;
 local $SIG{__WARN__} = sub {my $message =shift; die $message;};
 my $seq2HLA="$ARGV[0]";
