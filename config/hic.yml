@@ -9,7 +9,7 @@ peakachu:
     prob_cutoff: 0.7
     model: "ref/down30.h3k27ac.pkl"
 cluster:
-    hicpro: "--partition=ccr,norm --time=3-00:00:00 --mem=160G  --cpus-per-task=32  --gres=lscratch:200"
+    hicpro: "--time=3-00:00:00 --mem=160G  --cpus-per-task=32  --gres=lscratch:200"
 version:
     hicpro: "2.11.1"
     cutadapt: "2.10"

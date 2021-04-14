@@ -38,10 +38,10 @@ if [[ "$type" == "hic" || "$type" == "chipseq" || "$type" == "rnaseq" ]];then
 	mv ${sample_id}.yaml $yaml_file
 	for genome in "${genomes[@]}";do
 		g_nos=`echo $genome | sed 's/ //g'`
-		echo perl $pipeline_home/launch -t $type -w $processed_data_home/$g_nos/$type -s $yaml_file -g $g_nos
-		perl $pipeline_home/launch -t $type -w $processed_data_home/$g_nos/$type -s $yaml_file -g $g_nos
+		echo perl $pipeline_home/launch.pl -t $type -w $processed_data_home/$g_nos/$type -s $yaml_file -g $g_nos
+		perl $pipeline_home/launch.pl -t $type -w $processed_data_home/$g_nos/$type -s $yaml_file -g $g_nos
 	done
 else
-	echo "Error: Sample sheet generation failed: $sample_id. Reason: $type" ") #|mutt -s 'Gryderlab Pipeline Status' `whoami`@case.edu
+	echo "Error: Sample sheet generation failed: $sample_id. Reason: $type"  #|mutt -s 'Gryderlab Pipeline Status' `whoami`@case.edu
 fi
 

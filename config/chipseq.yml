@@ -1,8 +1,8 @@
 cluster:    
-    job_bwa: "--partition=ccr,norm --time=10:00:00 --mem=80G  --cpus-per-task=40  --gres=lscratch:200"
-    job_macs2: "--partition=ccr,norm --time=10:00:00 --mem=32G  --cpus-per-task=1  --gres=lscratch:100"
-    job_rose: "--partition=ccr,norm --time=20:00:00 --mem=32G  --cpus-per-task=1  --gres=lscratch:100"
-    job_motif: "--partition=ccr,norm --time=10:00:00 --mem=48G  --cpus-per-task=24  --gres=lscratch:100"
+    job_bwa: "--time=10:00:00 --mem=80G  --cpus-per-task=40  --gres=lscratch:200"
+    job_macs2: "--time=10:00:00 --mem=32G  --cpus-per-task=1  --gres=lscratch:100"
+    job_rose: "--time=20:00:00 --mem=32G  --cpus-per-task=1  --gres=lscratch:100"
+    job_motif: "--time=10:00:00 --mem=48G  --cpus-per-task=24  --gres=lscratch:100"
 version:
     bwa: "0.7.17"    
     macs: "2.2.6"
