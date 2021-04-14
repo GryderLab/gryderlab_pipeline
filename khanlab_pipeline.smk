@@ -30,8 +30,10 @@ suffix_SE = config["FASTQ_suffix_SE"]
 
 configfile: pipeline_home +"/config/" + pipeline_type + ".yml"
 
-include: "rules/utility.smk"
-include: "rules/pipeline." + pipeline_type + ".smk"
+include:
+    "rules/utility.smk"
+include:
+    "rules/pipeline." + pipeline_type + ".smk"
 
 onerror:
     shell("echo ' {pipeline_type} pipeline version {pipeline_version} failed on Biowulf. Samples: {SAMPLES}. Working Dir:  {work_dir}' ") #|mutt -e 'my_hdr From:jxs1984@case.edu' -s 'Gryderlab {pipeline_type} Pipeline Status' `whoami`@case.edu {emails} ")

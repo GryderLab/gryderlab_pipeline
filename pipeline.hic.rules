@@ -26,9 +26,11 @@ config["work_dir"] = work_dir
 suffix_R1 = config["FASTQ_suffix_R1"]
 suffix_R2 = config["FASTQ_suffix_R2"]
 
-include: "rules/utility.smk"
-include: "rules/pipeline.hic.smk"
-    
+include:
+    "rules/utility.smk"
+include:
+    "rules/pipeline.hic.smk"
+
 onerror:
     shell("echo 'HiC pipeline version {pipeline_version} failed on Biowulf. Samples: {SAMPLES}. Working Dir:  {work_dir}' ") #|mutt -e 'my_hdr From:jxs1984@case.edu' -s 'Gryderlab HiC Pipeline Status' `whoami`@case.edu {emails} ")
 onstart:

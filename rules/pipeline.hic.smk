@@ -77,7 +77,8 @@ TARGETS = MERGED_PAIRS+JUICEBOX_OUT+MERGE_STATS_SUMMARY+FASTQCS+FITHICHIP_OUT+PE
 localrules: all, HiCPro, prepareFASTQ, mergeStats
 #print(HICPRO_SCRIPTS,MERGED_PAIRS,JUICEBOX_OUT,MERGE_STATS_SUMMARY)
 
-include: "hicpro.smk"
+include:
+    "hicpro.smk"
 
 rule peakachu:
     input:
