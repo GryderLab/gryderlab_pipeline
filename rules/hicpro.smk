@@ -11,12 +11,12 @@ rule makeViewPoint:
             rulename = "makeViewPoint",
             log_dir = lambda wildcards: wildcards.sample + '/log',
             batch    = config["cluster_common"]["medium"]
-	singularity_version:
-	        config["version_common"]["sigularity"]
+    singularity_version:
+            config["version_common"]["sigularity"]
     shell:
             """
             module load singularity/{singularity_version}
-			#make_viewpoints.py is a script inside HiC-Pro
+            #make_viewpoints.py is a script inside HiC-Pro
             {hicpro} /HiC-Pro-devel/bin/utils/make_viewpoints.py -i {input} -f {params.fragment_bed} -t {params.capture_bed} -e 1000 -v -o {output}
             """
 
@@ -27,8 +27,8 @@ rule HiCpro2Juicebox:
             "{sample}/{sample}.allValidPairs.hic"
     version:
             config["version"]["hicpro"]
-	singularity_version:
-	        config["version_common"]["sigularity"]
+    singularity_version:
+            config["version_common"]["sigularity"]
     params:
             juicer_jar=config["juicer_jar"],
             juicer_genome=lambda wildcards: config[samples[wildcards.sample]["Genome"]]["juicer_genome"],
@@ -115,8 +115,8 @@ rule HiCPro:
     params:
             out_dir = lambda wildcards: wildcards.sample + '/HiCproOUTPUT.' + wildcards.genome,
             config_file = lambda wildcards: config["pipeline_home"] + '/config/hicpro/' + wildcards.genome + '_' + samples[wildcards.sample]["Digest"] + '.txt'
-	singularity_version:
-	        config["version_common"]["sigularity"]
+    singularity_version:
+            config["version_common"]["sigularity"]
     shell:
             """
             module load singularity/{singularity_version}

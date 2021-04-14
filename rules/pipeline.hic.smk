@@ -11,7 +11,6 @@ try:
     PAIRS = {}
     MERGE_STATS = {}
     FASTQS = {}
-    
 
     for sample_id, sample in samples.items():
         sample["Genome"] = config["genome"]
