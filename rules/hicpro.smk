@@ -10,7 +10,7 @@ rule makeViewPoint:
             capture_bed=lambda wildcards: config[wildcards.genome]["capture_bed"],
             rulename = "makeViewPoint",
             log_dir = lambda wildcards: wildcards.sample + '/log',
-            batch    = config["cluster_common"]["medium"]
+            batch    = config["cluster_common"]["medium"],
             singularity_version = config["version_common"]["sigularity"]
     shell:
             """
@@ -31,7 +31,7 @@ rule HiCpro2Juicebox:
             juicer_genome=lambda wildcards: config[samples[wildcards.sample]["Genome"]]["juicer_genome"],
             rulename = "HiCpro2Juicebox",
             log_dir = lambda wildcards: wildcards.sample + '/log',
-            batch    = config["cluster_common"]["medium"]
+            batch    = config["cluster_common"]["medium"],
             singularity_version = config["version_common"]["sigularity"]
     benchmark:
             "{sample}/benchmark/HiCpro2Juicebox.benchmark.txt"
@@ -112,7 +112,7 @@ rule HiCPro:
             config["version"]["hicpro"]
     params:
             out_dir = lambda wildcards: wildcards.sample + '/HiCproOUTPUT.' + wildcards.genome,
-            config_file = lambda wildcards: config["pipeline_home"] + '/config/hicpro/' + wildcards.genome + '_' + samples[wildcards.sample]["Digest"] + '.txt'
+            config_file = lambda wildcards: config["pipeline_home"] + '/config/hicpro/' + wildcards.genome + '_' + samples[wildcards.sample]["Digest"] + '.txt',
             singularity_version = config["version_common"]["sigularity"]
     shell:
             """

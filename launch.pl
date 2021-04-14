@@ -105,8 +105,7 @@ if ($dryrun){
 		$snake_command = $snake_command." --dag | dot -Tsvg > dag.$type.svg";
 	}	
 	my $cmd = "(
-		conda activate snakemake_env
-		# module load graphviz # conda install graphviz now in same env
+		# module load graphviz # graphviz installed in 3.6.6 user env
 		$snake_command
 		rm -f $work_dir/pipeline.$type.${sheet_name}.$now.csv
 		)";
@@ -118,18 +117,8 @@ else{
 	system("chmod g+rw $work_dir/log");
 	$snake_command = $snake_command." --jobname {params.rulename}.{jobid} --nolock  --ri -k -p -r -j 1000 --cores 150 --jobscript $pipeline_home/scripts/jobscript.sh --cluster \"sbatch --export=ALL -o {params.log_dir}/{params.rulename}.%j.o -e {params.log_dir}/{params.rulename}.%j.e {params.batch}\"";
 	if ($local) {
-	    system("source ~/.bashrc"); # allows activate
-        system("conda init bash");
-		system("conda activate snakemake_env"); # puts snakemake on the PATH
 		system($snake_command);
 	} else {
-		my $remote_cmd = "#!/usr/bin/env bash
-conda init bash;
-conda activate snakemake_env;
-$snake_command";
-        #print "Running\n$remote_cmd\n\n";
-		system('echo "$remote_cmd" > run_'.$type.'_job.sh');
-		system("");
         $jobid = readpipe("sbatch --export=ALL -J ${type}_pipeline -e $work_dir/log/pipeline.$type.${sheet_name}_${now}.%j.e -o $work_dir/log/pipeline.$type.${sheet_name}_${now}.%j.o --cpus-per-task=1 --mem=8G --time=24:00:00 $snake_command");
 	}
 }
