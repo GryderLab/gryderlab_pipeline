@@ -16,19 +16,19 @@ version:
     cutadapt: "2.10"
 hg38:
     bowtie2_index: "ucsc.hg38"
-    fragment_bed: "/data/khanlab/projects/HiC/reference_files/dpnii.ucsc.hg38.bed"
+    fragment_bed: "/home/jxs1984/reference_files/dpnii.ucsc.hg38.bed" # restriction files too large for repo
     capture_bed: "virtualHiC_MYOD1gene"
-    juicer_genome: "/data/khanlab/projects/HiC/reference_files/chrom_hg38.sizes"
-    chr_size: "/data/khanlab/projects/HiC/reference_files/chrom_hg38.sizes"
+    juicer_genome: "/home/jxs1984/reference_files/chrom_hg38.sizes"
+    chr_size: "/home/jxs1984/reference_files/chrom_hg38.sizes"
 hg19:
     bowtie2_index: "ucsc.hg19"
-    fragment_bed: "/data/khanlab/projects/HiC/reference_files/dpnii.ucsc.hg19.bed"
+    fragment_bed: "/home/jxs1984/reference_files/dpnii.ucsc.hg19.bed"
     capture_bed: "virtualHiC_MYOD1gene"
     juicer_genome: "hg19"
     chr_size: "/home/jxs1984/.usr/local/src/HiC-Pro-2.11.1/annotation/chrom_hg19.sizes"
 mm10:
-    fragment_bed: "/data/khanlab/projects/HiC/reference_files/dpnii.ucsc.mm10.bed"
+    fragment_bed: "/home/jxs1984/reference_files/dpnii.ucsc.mm10.bed"
     bowtie2_index: "mm10"
     juicer_genome: "mm10"
-    chr_size: "/data/khanlab/projects/HiC/reference_files/chrom_mm10.sizes"
+    chr_size: "/home/jxs1984/reference_files/chrom_mm10.sizes"
 

@@ -36,7 +36,7 @@ PAIR2_EXT = _R2
 FORMAT = phred33
 MIN_MAPQ = 0
 
-BOWTIE2_IDX_PATH = /data/khanlab/projects/HiC/reference_files/bowtie2_index
+BOWTIE2_IDX_PATH = /home/jxs1984/reference_files/bowtie2_index
 BOWTIE2_GLOBAL_OPTIONS = --very-sensitive -L 30 --score-min L,-0.6,-0.2 --end-to-end --reorder
 BOWTIE2_LOCAL_OPTIONS =  --very-sensitive -L 20 --score-min L,-0.6,-0.2 --end-to-end --reorder
 
@@ -45,7 +45,7 @@ BOWTIE2_LOCAL_OPTIONS =  --very-sensitive -L 20 --score-min L,-0.6,-0.2 --end-to
 #######################################################################
 
 REFERENCE_GENOME = mm10
-GENOME_SIZE = /data/khanlab/projects/HiC/reference_files/chrom_mm10.sizes
+GENOME_SIZE = /home/jxs1984/reference_files/chrom_mm10.sizes
 
 #######################################################################
 ## Allele specific
