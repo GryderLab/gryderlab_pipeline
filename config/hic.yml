@@ -2,6 +2,7 @@
 ---
 juicer_jar: "/usr/local/apps/juicer/juicer-1.5.6/scripts/juicer_tools.jar"
 fithichip_instance: "FitHiChIP/FitHiChIP.sif"
+hicpro_exe: "singularity exec /home/jxs1984/.usr/local/hicpro.img"
 peakachu:
     conda_path: "/data/khanlab/conda"
     env: "3dgenome"

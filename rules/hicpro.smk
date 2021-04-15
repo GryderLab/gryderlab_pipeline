@@ -1,4 +1,4 @@
-hicpro: "singularity exec /home/jxs1984/.usr/local/hicpro.img"
+hicpro_bin = config["hicpro_exe"] # used in multiple places
 
 rule makeViewPoint:
     input:  
@@ -16,7 +16,7 @@ rule makeViewPoint:
             """
             module load singularity/{params.singularity_version}
             #make_viewpoints.py is a script inside HiC-Pro
-            {hicpro} /HiC-Pro-devel/bin/utils/make_viewpoints.py -i {input} -f {params.fragment_bed} -t {params.capture_bed} -e 1000 -v -o {output}
+            {hicpro_bin} /HiC-Pro-devel/bin/utils/make_viewpoints.py -i {input} -f {params.fragment_bed} -t {params.capture_bed} -e 1000 -v -o {output}
             """
 
 rule HiCpro2Juicebox:
@@ -38,7 +38,7 @@ rule HiCpro2Juicebox:
     shell:
             """            
             module load singularity/{params.singularity_version}
-            {hicpro} /HiC-Pro-devel/bin/utils/hicpro2juicebox.sh -i {input} -g {params.juicer_genome} -j {params.juicer_jar} -o {wildcards.sample}
+            {hicpro_bin} /HiC-Pro-devel/bin/utils/hicpro2juicebox.sh -i {input} -g {params.juicer_genome} -j {params.juicer_jar} -o {wildcards.sample}
             """
 
 rule mergeStats:
@@ -118,5 +118,5 @@ rule HiCPro:
             """
             module load singularity/{params.singularity_version}
             rm -rf {params.out_dir}
-            {hicpro} HiC-Pro -i {wildcards.sample}/DATA/ -o {params.out_dir}/ -c {params.config_file} -p
+            {hicpro_bin} HiC-Pro -i {wildcards.sample}/DATA/ -o {params.out_dir}/ -c {params.config_file} -p
             """
