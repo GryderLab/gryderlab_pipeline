@@ -45,7 +45,7 @@ BOWTIE2_LOCAL_OPTIONS =  --very-sensitive -L 20 --score-min L,-0.6,-0.2 --end-to
 #######################################################################
 
 REFERENCE_GENOME = ucsc.hg19
-GENOME_SIZE = /data/khanlab/projects/HiC/reference_files/chrom_hg19.sizes
+GENOME_SIZE = /home/jxs1984/.usr/local/src/HiC-Pro-2.11.1/annotation/chrom_hg19.sizes
 
 #######################################################################
 ## Allele specific

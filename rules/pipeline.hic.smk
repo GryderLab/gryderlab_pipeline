@@ -139,7 +139,7 @@ rule FitHiChIP:
             echo "ChrSizeFile={params.chr_file}" >> {wildcards.sample}/FitHiChIP_Out/fithichip.conf
             echo "OutDir=/FitHiChIP_Out" >> {wildcards.sample}/FitHiChIP_Out/fithichip.conf
             echo "HiCProBasedir=/HiC-Pro-2.11.1/" >> {wildcards.sample}/FitHiChIP_Out/fithichip.conf
-            singularity exec -B /data/khanlab/projects/HiC/reference_files/,{params.work_dir}/{wildcards.sample}/FitHiChIP_Out:/FitHiChIP_Out,{params.work_dir}/{wildcards.sample}/HiCproOUTPUT.{params.genome}:/hicpro_data {params.fithichip_instance} bash /FitHiChIP/FitHiChIP_HiCPro.sh -C /FitHiChIP_Out/fithichip.conf
+            singularity exec -B /home/jxs1984/.usr/local/src/HiC-Pro-2.11.1/annotation/,{params.work_dir}/{wildcards.sample}/FitHiChIP_Out:/FitHiChIP_Out,{params.work_dir}/{wildcards.sample}/HiCproOUTPUT.{params.genome}:/hicpro_data {params.fithichip_instance} bash /FitHiChIP/FitHiChIP_HiCPro.sh -C /FitHiChIP_Out/fithichip.conf
             """
 rule FitHiChIPCallPeak:
     input:            

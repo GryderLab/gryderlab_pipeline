@@ -10,7 +10,7 @@ peakachu:
     prob_cutoff: 0.7
     model: "ref/down30.h3k27ac.pkl"
 cluster:
-    hicpro: "--time=3-00:00:00 --mem=160G  --cpus-per-task=32  --gres=lscratch:200"
+    hicpro: "--time=3-00:00:00 --mem=160G  --cpus-per-task=32"
 version:
     hicpro: "2.11.1"
     cutadapt: "2.10"
@@ -25,10 +25,10 @@ hg19:
     fragment_bed: "/data/khanlab/projects/HiC/reference_files/dpnii.ucsc.hg19.bed"
     capture_bed: "virtualHiC_MYOD1gene"
     juicer_genome: "hg19"
-    chr_size: "/data/khanlab/projects/HiC/reference_files/chrom_hg19.sizes"
+    chr_size: "/home/jxs1984/.usr/local/src/HiC-Pro-2.11.1/annotation/chrom_hg19.sizes"
 mm10:
     fragment_bed: "/data/khanlab/projects/HiC/reference_files/dpnii.ucsc.mm10.bed"
-    bowtie2_index: mm10
-    juicer_genome: mm10"
+    bowtie2_index: "mm10"
+    juicer_genome: "mm10"
     chr_size: "/data/khanlab/projects/HiC/reference_files/chrom_mm10.sizes"
 

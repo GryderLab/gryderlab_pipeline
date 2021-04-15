@@ -15,7 +15,7 @@ shell.prefix("""
     module purge
     sleep 20s
     MEM=`echo "${{SLURM_MEM_PER_NODE}} / 1024 "|bc`
-    LOCAL="/lscratch/${{SLURM_JOBID}}/"
+    LOCAL="${{PFSDIR}}/"
     THREADS=${{SLURM_CPUS_ON_NODE}}
     """)
 configfile: pipeline_home +"/config/common.yml"
