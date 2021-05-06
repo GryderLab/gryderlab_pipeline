@@ -199,16 +199,17 @@ rule fastqc:
             work_dir = config["work_dir"],
             rulename = "fastqc",
             log_dir = lambda wildcards: wildcards.sample + '/log',
-            batch    = config["cluster_common"]["medium"]
+            batch    = config["cluster_common"]["medium"],
+            fastqc_bin = config["fastqc_bin"]
     benchmark:
             "{sample}/benchmark/fastqc.{suffix}.benchmark.txt"
     version:
             config["version_common"]["fastqc"]
     shell:
             """
-            module load fastqc/{version}
+            #module load fastqc/{version}
             mkdir -p {wildcards.sample}/qc
-            fastqc -t ${{THREADS}} -o {wildcards.sample}/qc {input}
+            {params.fastqc_bin} -t ${{THREADS}} -o {wildcards.sample}/qc {input}
             """
             
 rule prepareFASTQ:
